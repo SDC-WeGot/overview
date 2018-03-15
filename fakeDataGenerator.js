@@ -4,10 +4,11 @@ const capitalizeFirstLetter = function capitalizeFirstLetter(string) {
   return string[0].toUpperCase() + string.slice(1);
 };
 
-const generateFakeObject = function generateFakeObject() {
+const generateFakeObject = function generateFakeObject(id) {
   // const results = [];
   // for (let i = 0; i < n; i += 1) {
   const obj = {
+    _id: id,
     name: `${capitalizeFirstLetter(faker.hacker.adjective())} ${capitalizeFirstLetter(faker.hacker.noun())}`,
     tagline: `${faker.lorem.sentence(10)}`,
     type: 'Restaurant',
