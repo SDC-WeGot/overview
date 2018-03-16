@@ -5,13 +5,12 @@ const fakeDataGenerator = require('../fakeDataGenerator');
 (async function seedPG() {
   const getNextData = function getNextData(pageIndex) {
     return new Promise((resolve) => {
-      console.log(`page index: ${pageIndex}`);
-      if (pageIndex === 2) {
+      if (pageIndex === 10000) {
         resolve(null);
       }
       const results = [];
-      for (let i = 0; i < 10000; i += 1) {
-        const id = (pageIndex * 10000) + i + 1;
+      for (let i = 0; i < 1000; i += 1) {
+        const id = (pageIndex * 1000) + i + 1;
         results.push(fakeDataGenerator(id));
       }
       resolve(results);
