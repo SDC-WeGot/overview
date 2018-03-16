@@ -1,6 +1,6 @@
-const pgp = require('pg-promise');
+const pgp = require('pg-promise')({});
 
-const connectionString = 'postgres://postgres@localhost:543/zagat';
+const connectionString = 'postgres://localhost:5432/zagat';
 
 const db = pgp(connectionString);
 
