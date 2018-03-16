@@ -1,14 +1,13 @@
-const db = require('./../../db_mongo/controller.js');
+const db = require('./../../db_mongo/controller_driver.js');
 
 const actions = {
-  GET: function respondToGETRequest(req, res) {
-    db.findOneById(req.params.id, (err, result) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send(result);
-      }
-    });
+  GET: async function respondToGETRequest(req, res) {
+    try {
+      const result = await db.findOneById(req.params.id);
+      res.send(result);
+    } catch (error) {
+      res.send(error);
+    }
   },
 };
 
