@@ -30,7 +30,7 @@ class Overview extends React.Component {
     const id = window.location.href.split('/')[4];
     axios.get(`/api/restaurants/${id}/overview`)
       .then((response) => {
-        this.handleRestaurantChange(response.data[0]);
+        this.handleRestaurantChange(response.data);
       })
       .catch((err) => {
         console.log(err);
