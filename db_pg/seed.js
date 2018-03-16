@@ -23,11 +23,11 @@ const fakeDataGenerator = require('../fakeDataGenerator');
     'tagline',
     'type',
     'vicinity',
-    { name: 'pricelevel', prop: 'priceLevel' },
-    { name: 'zagatfood', prop: 'zagatFood' },
-    { name: 'zagatdecor', prop: 'zagatDecor' },
-    { name: 'zagatservice', prop: 'zagatService' },
-    { name: 'longdescription', prop: 'longDescription' },
+    'priceLevel',
+    'zagatFood',
+    'zagatDecor',
+    'zagatService',
+    'longDescription',
   ], { table: 'restaurants' });
 
   try {
