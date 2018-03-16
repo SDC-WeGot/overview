@@ -1,7 +1,7 @@
 const RestaurantModel = require('./model');
 
-const findOneById = (id, callback) => {
-  RestaurantModel.find({ id }, callback);
+const findOneById = (_id, callback) => {
+  RestaurantModel.find({ _id }, callback);
 };
 
 const insertMany = (restaurant, callback) => {

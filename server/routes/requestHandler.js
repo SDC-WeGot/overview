@@ -1,4 +1,4 @@
-const db = require('./../../db_mongo/db.js');
+const db = require('./../../db_mongo/controller.js');
 
 const actions = {
   GET: function respondToGETRequest(req, res) {
