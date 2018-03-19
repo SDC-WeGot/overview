@@ -9,16 +9,18 @@ let db;
 let col;
 const url = 'mongodb://localhost:27017';
 
+async function connectDB() {
+  client = await MongoClient.connect(url);
+  db = await client.db('weGotData');
+  return db.collection('restaurants');
+}
+
 // clear current db
 async function clearDB() {
-  console.log('clearing db');
-  client = await MongoClient.connect(url);
-  console.log('connected');
-  db = await client.db('weGotData');
-  console.log('in wegotdata');
-  col = await db.collection('restaurants');
-  console.log('found collection');
+  col = await connectDB();
+  console.log('connected to db');
   try {
+    console.log('clearing db');
     await col.drop();
     console.log('db cleared!');
   } catch (error) {
@@ -29,11 +31,7 @@ async function clearDB() {
 const time = new Date().getTime();
 
 async function seedDB(cpuNumber) {
-  client = await MongoClient.connect(url);
-  db = await client.db('weGotData');
-  col = await db.collection('restaurants');
-  const collection = db.collection('restaurants');
-
+  const collection = await connectDB();
   let countRemaining = 10000000 / numCPUs;
   const count = 10000000 / numCPUs;
   const size = 20000;
@@ -74,10 +72,13 @@ if (cluster.isMaster) {
       cluster.fork();
     }
     let countExits = 0;
-    cluster.on('exit', (worker) => {
+    cluster.on('exit', async (worker) => {
       console.log(`worker ${worker.process.pid} finished`);
       countExits += 1;
       if (countExits === numCPUs) {
+        //  create index after all processes have finished
+        const collection = await connectDB();
+        await collection.createIndex({ restaurant_id: 1 });
         //  exit master after all workers have exited
         process.exit();
       }
