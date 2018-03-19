@@ -1,6 +1,8 @@
 const pgp = require('pg-promise')({});
 const cluster = require('cluster');
+const path = require('path');
 const numCPUs = require('os').cpus().length;
+const sql = require('./helpers/files');
 
 const db = require('./db');
 const fakeDataGenerator = require('../fakeDataGenerator');
@@ -78,12 +80,15 @@ if (cluster.isMaster) {
         cluster.fork();
       }
       let countExits = 0;
-      cluster.on('exit', (worker) => {
+      cluster.on('exit', async (worker) => {
         console.log(`worker ${worker.process.pid} finished`);
         console.log(`done in ${(new Date().getTime() - time) / 1000} seconds`);
         countExits += 1;
         if (countExits === numCPUs) {
           //  exit master after all workers have exited
+          const createIndexPath = path.join(__dirname, './schema/createIndex.sql');
+          const createIndexSQL = sql(createIndexPath);
+          await db.none(createIndexSQL);
           process.exit();
         }
       });
