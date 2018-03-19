@@ -12,7 +12,9 @@
     "dev-install": "yarn install--production",
     "dev": "webpack -d --watch",
     "test": "jest --coverage",
-    "seed": "node seed.js",
+    "createPG": "node db_pg/createDB.js",
+    "seedMongo": "node db_mongo/seed_multithreaded.js",
+    "seedPG": "node db_pg/seed_multithreaded.js",
     "docker-start": "DB_ADDRESS=database node seed.js && DB_ADDRESS=database node server/server.js"
   },
   "dependencies": {

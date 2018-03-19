@@ -8,7 +8,7 @@ const fakeDataGenerator = require('../fakeDataGenerator');
 const time = new Date().getTime();
 
 const columnSet = new pgp.helpers.ColumnSet([
-  '_id',
+  'restaurant_id',
   'name',
   'tagline',
   'type',

@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS restaurants;
 CREATE TABLE restaurants (
   _id SERIAL UNIQUE PRIMARY KEY,
+  restaurant_id INTEGER NOT NULL,
   name TEXT NOT NULL,
   tagline TEXT NOT NULL,
   type TEXT NOT NULL,

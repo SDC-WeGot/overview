@@ -5,10 +5,8 @@ const capitalizeFirstLetter = function capitalizeFirstLetter(string) {
 };
 
 const generateFakeObject = function generateFakeObject(id) {
-  // const results = [];
-  // for (let i = 0; i < n; i += 1) {
   const obj = {
-    _id: id,
+    restaurant_id: id,
     name: `${capitalizeFirstLetter(faker.hacker.adjective())} ${capitalizeFirstLetter(faker.hacker.noun())}`,
     tagline: `${faker.lorem.sentence(10)}`,
     type: 'Restaurant',
@@ -20,9 +18,6 @@ const generateFakeObject = function generateFakeObject(id) {
     longDescription: `${faker.lorem.paragraph(3)}`,
   };
   return obj;
-  // results.push(obj);
-  // }
-  // return results;
 };
 
 module.exports = generateFakeObject;

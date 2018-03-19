@@ -13,10 +13,17 @@ const url = 'mongodb://localhost:27017';
 async function clearDB() {
   console.log('clearing db');
   client = await MongoClient.connect(url);
+  console.log('connected');
   db = await client.db('weGotData');
+  console.log('in wegotdata');
   col = await db.collection('restaurants');
-  await col.drop();
-  console.log('db cleared!');
+  console.log('found collection');
+  try {
+    await col.drop();
+    console.log('db cleared!');
+  } catch (error) {
+    console.log('drop failed most likely because the collection does not exist');
+  }
 }
 
 const time = new Date().getTime();
