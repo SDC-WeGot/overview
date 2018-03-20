@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+require('newrelic');
 // const webpack = require('webpack');
 // const webpackDevMiddleware = require('webpack-dev-middleware');
 // const config = require('../webpack.config.js');
 const app = require('./app');
 
-const dbAddress = process.env.DB_ADDRESS || 'localhost';
+//  const dbAddress = process.env.DB_ADDRESS || 'localhost';
 
 
-mongoose.connect(`mongodb://${dbAddress}/weGotData`);
+//  mongoose.connect(`mongodb://${dbAddress}/weGotData`);
 // const compiler = webpack(config);
 
 // app.use(webpackDevMiddleware(compiler, {
