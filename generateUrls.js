@@ -23,5 +23,5 @@ const generateUrls = function generateUrls(n) {
   }
 };
 
-generateUrls(10000000);
+module.exports = generateUrls;
 
