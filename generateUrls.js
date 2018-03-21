@@ -1,3 +1,6 @@
+//  when running httperf
+//  httperf --server localhost --port 3002
+//    --wlog Y,wlog.log --num-conns 10000 --rate 100 --timeout 1
 const fs = require('fs');
 
 const generateUrls = function generateUrls(n) {
