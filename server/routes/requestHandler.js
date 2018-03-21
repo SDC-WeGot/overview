@@ -1,5 +1,5 @@
-const db = require('./../../db_mongo/controller_driver.js');
-// const db = require('./../../db_pg/controller.js');
+// const db = require('./../../db_mongo/controller_driver.js');
+const db = require('./../../db_pg/controller.js');
 
 const actions = {
   GET: async function respondToGETRequest(req, res) {

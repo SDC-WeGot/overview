@@ -16,15 +16,19 @@ const app = require('./app');
 // app.use(webpackDevMiddleware(compiler, {
 //   publicPath: config.output.publicPath,
 // }));
-connectToServer()
-  .then(() => {
-    app.listen(3002, () => {
-      console.log('Listening on port 3002');
-    });
-  })
-  .catch((err) => {
-    console.log(`unable to connect to mongo: ${err}`);
-  });
+// connectToServer()
+//   .then(() => {
+//     app.listen(3002, () => {
+//       console.log('Listening on port 3002');
+//     });
+//   })
+//   .catch((err) => {
+//     console.log(`unable to connect to mongo: ${err}`);
+//   });
+
+app.listen(3002, () => {
+  console.log('Listening on port 3002');
+});
 
 
 // =============================================================== //

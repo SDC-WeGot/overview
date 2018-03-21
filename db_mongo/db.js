@@ -12,17 +12,17 @@ const { MongoClient } = require('mongodb');
 const url = 'mongodb://localhost:27017';
 const dbName = 'weGotData';
 
-let mongodb;
+let collection;
 
 module.exports = {
   connectToServer: async () => {
     try {
-      const client = await MongoClient.connect(url, { poolSize: 10 });
-      mongodb = client.db(dbName);
+      const client = await MongoClient.connect(url, { poolSize: 1000 });
+      collection = client.db(dbName).collection('restaurants');
     } catch (error) {
       throw new Error(error);
     }
   },
-  getDB: () => mongodb,
+  getDB: () => collection,
 };
 
