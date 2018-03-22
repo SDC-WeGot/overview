@@ -17,7 +17,7 @@ let collection;
 module.exports = {
   connectToServer: async () => {
     try {
-      const client = await MongoClient.connect(url, { poolSize: 10 });
+      const client = await MongoClient.connect(url, { poolSize: 15 });
       collection = client.db(dbName).collection('restaurants');
     } catch (error) {
       throw new Error(error);

@@ -30,3 +30,35 @@ Summary report @ 12:06:21(-0700) 2018-03-22 (Mongo)
     Load a restaurant: 400 (100%)
   Codes:
     200: 1200
+
+Summary report @ 15:13:35(-0700) 2018-03-22 (Mongo with multithreading and poolsize 10)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 69.12
+  Request latency:
+    min: 3.7
+    max: 390.4
+    median: 114.6
+    p95: 222.3
+    p99: 314.3
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+Summary report @ 15:17:35(-0700) 2018-03-22 (Mongo multithreading, 20 pool size)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 85.84
+  Request latency:
+    min: 4.4
+    max: 286.8
+    median: 88.4
+    p95: 184.7
+    p99: 228.4
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
