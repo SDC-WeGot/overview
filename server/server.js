@@ -16,6 +16,7 @@ const app = require('./app');
 // app.use(webpackDevMiddleware(compiler, {
 //   publicPath: config.output.publicPath,
 // }));
+
 connectToServer()
   .then(() => {
     app.listen(3002, () => {
