@@ -1,0 +1,32 @@
+All virtual users finished
+Summary report @ 12:01:29(-0700) 2018-03-22 (Postgres)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 91.46
+  Request latency:
+    min: 3.5
+    max: 1298.6
+    median: 369.7
+    p95: 1090.8
+    p99: 1210.4
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+Summary report @ 12:06:21(-0700) 2018-03-22 (Mongo)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 89.82
+  Request latency:
+    min: 6.2
+    max: 1513.1
+    median: 454.7
+    p95: 1295
+    p99: 1461.8
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200

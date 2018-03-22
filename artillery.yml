@@ -1,0 +1,22 @@
+config:
+  target: "http://localhost:3002"
+  http:
+    pool: 10
+  phases: 
+    - duration: 10
+      arrivalRate: 40
+      name: "Sustained max load"
+  processor: "./generateUrls.js"
+scenarios:
+  - name: "Load a restaurant"
+    flow:
+      - function: "generateUrls"
+      - get:
+          url: "/restaurants/{{ restaurantId }}/"
+      - get:
+          url: "/restaurants/{{ restaurantId }}/bundle.js"
+      - get:
+          url: "/api/restaurants/{{ restaurantId }}/overview"
+      - log: "Sent a request for restaurant Id: {{ restaurantId }}"
+
+

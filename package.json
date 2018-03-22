@@ -18,6 +18,7 @@
     "docker-start": "DB_ADDRESS=database node seed.js && DB_ADDRESS=database node server/server.js"
   },
   "dependencies": {
+    "artillery": "^1.6.0-14",
     "axios": "^0.18.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
