@@ -1,20 +1,20 @@
 config:
   target: "http://localhost:3002"
   http:
-    pool: 100
+    pool: 10
   phases: 
     - duration: 3
-      arrivalRate: 30
+      arrivalRate: 100
       name: "Sustained max load"
   processor: "./generateUrls.js"
 scenarios:
   - flow:
     - loop: 
       - function: "generateUrls"
-      - get:
-          url: "/restaurants/{{ restaurantId }}/"
-      - get:
-          url: "/restaurants/{{ restaurantId }}/bundle.js"
+      # - get:
+      #     url: "/restaurants/{{ restaurantId }}/"
+      # - get:
+      #     url: "/restaurants/{{ restaurantId }}/bundle.js"
       - get:
           url: "/api/restaurants/{{ restaurantId }}/overview"
         count: 10
