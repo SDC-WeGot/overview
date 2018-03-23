@@ -78,3 +78,15 @@ Summary report @ 15:30:08(-0700) 2018-03-22 (Mongo pool size 15, multithreading,
     Load a restaurant: 400 (100%)
   Codes:
     200: 1200
+
+ RPS sent: 62.27 (caching bundle)
+  Request latency:
+    min: 4.2
+    max: 424.7
+    median: 136
+    p95: 268
+    p99: 342.9
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
