@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const handler = require('./routes/requestHandler.js');
+const bundle = require('./loader');
+const cache = require('./cache');
 
 const app = express();
 
@@ -13,8 +15,12 @@ app.get('/', (req, res) => {
   res.redirect('/restaurants/1');
 });
 
+app.use('/restaurants/:id/bundle.js', (req, res) => {
+  res.send(bundle);
+});
 app.use('/restaurants/:id', express.static('client/dist'));
-app.get('/api/restaurants/:id/overview', handler.requestHandler);
+
+app.get('/api/restaurants/:id/overview', cache, handler.requestHandler);
 
 module.exports = app;
 
