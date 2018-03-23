@@ -66,3 +66,6 @@ coverage/
 #webpack output
 bundle.js
 bundle.js.map
+
+#newrelic
+newrelic.js
