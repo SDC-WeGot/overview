@@ -15,9 +15,12 @@ app.get('/', (req, res) => {
   res.redirect('/restaurants/1');
 });
 
-// app.use('/restaurants/:id/bundle.js', (req, res) => {
-//   res.send(bundle);
-// });
+//  send back gzipped bundle.js
+app.get('*.js', (req, res, next) => {
+  req.url += '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 app.use('/restaurants/:id', express.static('client/dist'));
 
 app.get('/api/restaurants/:id/overview', cache, handler.requestHandler);
