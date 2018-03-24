@@ -181,3 +181,19 @@ Report @ 10:41:08(-0700) 2018-03-24 (with redis)
     p99: 304.5
   Codes:
     200: 8060
+
+Summary report @ 16:45:24(-0700) 2018-03-24 (with redis cluster, removed express.static)
+  Scenarios launched:  15000
+  Scenarios completed: 15000
+  Requests completed:  75000
+  RPS sent: 1126.46
+  Request latency:
+    min: 1.1
+    max: 249.3
+    median: 5.8
+    p95: 19.4
+    p99: 46.5
+  Scenario counts:
+    0: 15000 (100%)
+  Codes:
+    200: 75000
