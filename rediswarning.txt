@@ -1,0 +1,5 @@
+WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+
+Followed this in order to fix this: https://github.com/docker-library/redis/issues/55
+
+use this to create container: docker run --name some-redis -p 6379:6379 -d redis redis-server --appendonly yes

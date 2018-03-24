@@ -15,4 +15,4 @@ const query = async (numQueries) => {
   console.log(`Average query time: ${times.reduce(reducer) / times.length} ms`);
 };
 
-query(1000);
+query(100);

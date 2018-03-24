@@ -1,6 +1,6 @@
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-require('newrelic');
+// require('newrelic');
 
 const { connectToServer } = require('../db_mongo/db');
 const app = require('./app');
@@ -12,6 +12,14 @@ const masterProcess = function masterProcess() {
     console.log(`Forking process number ${i}...`);
     cluster.fork();
   }
+
+  cluster.on('exit', (worker, code) => {
+    if (code !== 0 && !worker.exitedAfterDisconnect) {
+      console.log(`Worker ${worker.id} crashed. ` +
+                  'Starting a new worker...');
+      cluster.fork();
+    }
+  });
 };
 
 const childProcess = function childProcess() {

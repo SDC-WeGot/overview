@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose');
-require('newrelic');
+// require('newrelic');
 
 const { connectToServer } = require('../db_mongo/db');
 // const webpack = require('webpack');

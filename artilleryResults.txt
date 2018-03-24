@@ -90,3 +90,65 @@ Summary report @ 15:30:08(-0700) 2018-03-22 (Mongo pool size 15, multithreading,
     Load a restaurant: 400 (100%)
   Codes:
     200: 1200
+
+All virtual users finished (pool size 15, Mongo, arrivalRate 200, no http pools, loopCount 40, all 3 urls )
+Summary report @ 19:05:11(-0700) 2018-03-23
+  Scenarios launched:  416
+  Scenarios completed: 416
+  Requests completed:  49920
+  RPS sent: 739.12
+  Request latency:
+    min: 0.9
+    max: 733.4
+    median: 87.3
+    p95: 225.1
+    p99: 356.5
+  Scenario counts:
+    0: 416 (100%)
+  Codes:
+    200: 49920
+
+Summary report @ 19:19:21(-0700) 2018-03-23 (Mongo, spike: 400, count: 80, all 3, no pool)
+  Scenarios launched:  616
+  Scenarios completed: 616
+  Requests completed:  147840
+  RPS sent: 837.86
+  Request latency:
+    min: 0.7
+    max: 1419.9
+    median: 154.4
+    p95: 493.4
+    p99: 715.6
+  Scenario counts:
+    0: 616 (100%)
+  Codes:
+    200: 147840
+
+config:
+  target: "http://localhost:3002"
+  phases:
+    - duration: 10
+      arrivalRate: 10000
+      name: "Spike"
+  processor: "./generateUrls.js"
+scenarios:
+  - flow:
+    - loop: 
+      - function: "generateUrls"
+      - get:
+          url: "/api/restaurants/{{ restaurantId }}/overview"
+      count: 5
+
+Report @ 21:32:49(-0700) 2018-03-23
+  Scenarios launched:  1996
+  Scenarios completed: 1824
+  Requests completed:  9309
+  RPS sent: 921.9
+  Request latency:
+    min: 3.9
+    max: 577.1
+    median: 68.4
+    p95: 255.6
+    p99: 523.4
+  Codes:
+    200: 9309
