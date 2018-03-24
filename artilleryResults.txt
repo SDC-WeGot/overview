@@ -1,0 +1,199 @@
+All virtual users finished
+Summary report @ 12:01:29(-0700) 2018-03-22 (Postgres)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 91.46
+  Request latency:
+    min: 3.5
+    max: 1298.6
+    median: 369.7
+    p95: 1090.8
+    p99: 1210.4
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+Summary report @ 12:06:21(-0700) 2018-03-22 (Mongo)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 89.82
+  Request latency:
+    min: 6.2
+    max: 1513.1
+    median: 454.7
+    p95: 1295
+    p99: 1461.8
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+Summary report @ 15:13:35(-0700) 2018-03-22 (Mongo with multithreading and poolsize 10)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 69.12
+  Request latency:
+    min: 3.7
+    max: 390.4
+    median: 114.6
+    p95: 222.3
+    p99: 314.3
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+Summary report @ 15:17:35(-0700) 2018-03-22 (Mongo multithreading, 20 pool size)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 85.84
+  Request latency:
+    min: 4.4
+    max: 286.8
+    median: 88.4
+    p95: 184.7
+    p99: 228.4
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+Summary report @ 15:30:08(-0700) 2018-03-22 (Mongo pool size 15, multithreading, realistically distributed data)
+  Scenarios launched:  400
+  Scenarios completed: 400
+  Requests completed:  1200
+  RPS sent: 86.77
+  Request latency:
+    min: 3.8
+    max: 257.5
+    median: 90.8
+    p95: 170.2
+    p99: 214.2
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+ RPS sent: 62.27 (caching bundle)
+  Request latency:
+    min: 4.2
+    max: 424.7
+    median: 136
+    p95: 268
+    p99: 342.9
+  Scenario counts:
+    Load a restaurant: 400 (100%)
+  Codes:
+    200: 1200
+
+All virtual users finished (pool size 15, Mongo, arrivalRate 200, no http pools, loopCount 40, all 3 urls )
+Summary report @ 19:05:11(-0700) 2018-03-23
+  Scenarios launched:  416
+  Scenarios completed: 416
+  Requests completed:  49920
+  RPS sent: 739.12
+  Request latency:
+    min: 0.9
+    max: 733.4
+    median: 87.3
+    p95: 225.1
+    p99: 356.5
+  Scenario counts:
+    0: 416 (100%)
+  Codes:
+    200: 49920
+
+Summary report @ 19:19:21(-0700) 2018-03-23 (Mongo, spike: 400, count: 80, all 3, no pool)
+  Scenarios launched:  616
+  Scenarios completed: 616
+  Requests completed:  147840
+  RPS sent: 837.86
+  Request latency:
+    min: 0.7
+    max: 1419.9
+    median: 154.4
+    p95: 493.4
+    p99: 715.6
+  Scenario counts:
+    0: 616 (100%)
+  Codes:
+    200: 147840
+
+config:
+  target: "http://localhost:3002"
+  phases:
+    - duration: 10
+      arrivalRate: 10000
+      name: "Spike"
+  processor: "./generateUrls.js"
+scenarios:
+  - flow:
+    - loop: 
+      - function: "generateUrls"
+      - get:
+          url: "/api/restaurants/{{ restaurantId }}/overview"
+      count: 5
+
+Report @ 21:32:49(-0700) 2018-03-23
+  Scenarios launched:  1996
+  Scenarios completed: 1824
+  Requests completed:  9309
+  RPS sent: 921.9
+  Request latency:
+    min: 3.9
+    max: 577.1
+    median: 68.4
+    p95: 255.6
+    p99: 523.4
+  Codes:
+    200: 9309
+
+
+Report @ 10:37:46(-0700) 2018-03-24 (without cache)
+  Scenarios launched:  1647
+  Scenarios completed: 1647
+  Requests completed:  8235
+  RPS sent: 816.45
+  Request latency:
+    min: 2.7
+    max: 442
+    median: 7.9
+    p95: 30.5
+    p99: 51.8
+  Codes:
+    200: 8235
+
+Report @ 10:41:08(-0700) 2018-03-24 (with redis)
+  Scenarios launched:  1566
+  Scenarios completed: 1676
+  Requests completed:  8060
+  RPS sent: 799.9
+  Request latency:
+    min: 3.7
+    max: 380.6
+    median: 35.9
+    p95: 183.2
+    p99: 304.5
+  Codes:
+    200: 8060
+
+Summary report @ 16:45:24(-0700) 2018-03-24 (with redis cluster, removed express.static)
+  Scenarios launched:  15000
+  Scenarios completed: 15000
+  Requests completed:  75000
+  RPS sent: 1126.46
+  Request latency:
+    min: 1.1
+    max: 249.3
+    median: 5.8
+    p95: 19.4
+    p99: 46.5
+  Scenario counts:
+    0: 15000 (100%)
+  Codes:
+    200: 75000

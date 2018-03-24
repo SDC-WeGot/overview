@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "NODE_ENV=production node server/server.js",
     "dev-install": "yarn install--production",
     "dev": "webpack -d --watch",
     "test": "jest --coverage",
@@ -18,17 +18,23 @@
     "docker-start": "DB_ADDRESS=database node seed.js && DB_ADDRESS=database node server/server.js"
   },
   "dependencies": {
+    "artillery": "^1.6.0-14",
     "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "compression-webpack-plugin": "^1.1.11",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "faker": "^4.1.0",
+    "ioredis": "^3.2.2",
     "mongodb": "^3.0.4",
     "mongoose": "^5.0.7",
     "morgan": "^1.9.0",
+    "newrelic": "^3.2.0",
     "pg-promise": "^8.2.2",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "redis": "^2.8.0",
     "request": "^2.83.0"
   },
   "devDependencies": {
