@@ -17,12 +17,12 @@ app.get('/', (req, res) => {
 });
 
 //  send back gzipped bundle.js
-app.get('*.js', (req, res, next) => {
-  req.url += '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
-});
-app.use('/restaurants/:id', express.static('client/dist'));
+// app.get('*.js', (req, res, next) => {
+//   req.url += '.gz';
+//   res.set('Content-Encoding', 'gzip');
+//   next();
+// });
+// app.use('/restaurants/:id', express.static('client/dist'));
 //  TODO implement this route so that proxy server can download bundle.js
 // app.get('/download', (req, res) => {
 //   res.download(path.resolve(__dirname, '../client/dist/bundle.js.gz'));
