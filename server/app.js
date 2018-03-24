@@ -30,5 +30,8 @@ app.get('/', (req, res) => {
 
 app.get('/api/restaurants/:id/overview', cache, handler.requestHandler);
 
+// app.get('/api/restaurants/:id/overview', handler.requestHandler);
+
+
 module.exports = app;
 

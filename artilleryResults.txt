@@ -152,3 +152,32 @@ Report @ 21:32:49(-0700) 2018-03-23
     p99: 523.4
   Codes:
     200: 9309
+
+
+Report @ 10:37:46(-0700) 2018-03-24 (without cache)
+  Scenarios launched:  1647
+  Scenarios completed: 1647
+  Requests completed:  8235
+  RPS sent: 816.45
+  Request latency:
+    min: 2.7
+    max: 442
+    median: 7.9
+    p95: 30.5
+    p99: 51.8
+  Codes:
+    200: 8235
+
+Report @ 10:41:08(-0700) 2018-03-24 (with redis)
+  Scenarios launched:  1566
+  Scenarios completed: 1676
+  Requests completed:  8060
+  RPS sent: 799.9
+  Request latency:
+    min: 3.7
+    max: 380.6
+    median: 35.9
+    p95: 183.2
+    p99: 304.5
+  Codes:
+    200: 8060
