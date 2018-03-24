@@ -1,7 +1,7 @@
 config:
   target: "http://localhost:3002"
   # http:
-  #   pool: 4
+  #   pool: 1000
   phases:
     # - duration: 10
     #   arrivalRate: 10
@@ -10,8 +10,8 @@ config:
     # - duration: 60
     #   arrivalRate: 2400
     #   name: "Sustained high load" 
-    - duration: 10
-      arrivalRate: 10000
+    - duration: 60
+      arrivalRate: 200
       name: "Spike"
   processor: "./generateUrls.js"
 scenarios:
