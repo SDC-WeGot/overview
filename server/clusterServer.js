@@ -1,6 +1,7 @@
+// require('newrelic');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-// require('newrelic');
+
 
 const { connectToServer } = require('../db_mongo/db');
 const app = require('./app');
