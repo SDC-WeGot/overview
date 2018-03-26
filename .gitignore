@@ -70,6 +70,10 @@ coverage/
 bundle.js
 bundle.js.map
 bundle.js.gz
+client/dist/app-server.js
+client/dist/app-server.js.gz
+client/dist/app.js
+client/dist/app.js.gz
 
 #newrelic
 newrelic.js
