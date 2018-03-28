@@ -29,7 +29,7 @@ class Overview extends React.Component {
 
   fetchRestaurantInfo() {
     // const id = window.location.href.split('/')[4];
-    axios.get(`/api/restaurants/${this.props.id}/overview`)
+    axios.get(`http://localhost:3002/api/restaurants/${this.props.itemid}/overview`)
       .then((response) => {
         this.handleRestaurantChange(response.data);
       })
@@ -86,7 +86,7 @@ class Overview extends React.Component {
 }
 
 Overview.propTypes = {
-  id: PropTypes.number.isRequired,
+  itemid: PropTypes.number.isRequired,
 };
 
 export default Overview;
