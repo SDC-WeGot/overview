@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const handler = require('./routes/requestHandler.js');
-// const bundle = require('./loader');
 const cache = require('./cache');
 
 const app = express();
@@ -30,13 +29,6 @@ app.get('/app.js', (req, res) => {
 app.get('/app-server.js', (req, res) => {
   res.download(path.resolve(__dirname, '../client/dist/app-server.js'));
 });
-
-// app.use(express.static('client/dist'));
-// app.use('/restaurants/:id', express.static('client/dist'));
-//  TODO implement this route so that proxy server can download bundle.js
-// app.get('/download', (req, res) => {
-//   res.download(path.resolve(__dirname, '../client/dist/bundle.js.gz'));
-// });
 
 app.get('/api/restaurants/:id/overview', cache, handler.requestHandler);
 
