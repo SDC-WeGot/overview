@@ -47,17 +47,17 @@ body {
 /* ====================================================== */
 /* ============= WeGot Divider Line Styles ============== */
 /* ====================================================== */
-#overview-hline {
+.overviewHline {
   height: 1px;
   border: 0;
   border-top: 4px double;
   margin: 1.2em 0;
   padding: 0;
 }
-#overview-divider-line {
+.overviewDividerLine {
   position: relative;
 }
-#overview-logo {
+.overviewLogo {
   position: absolute;
   top: 50%;
   left: 80%;
