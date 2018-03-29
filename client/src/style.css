@@ -34,13 +34,13 @@ body {
 /* ====================================================== */
 /* ============ Basic Details Module Styles ============= */
 /* ====================================================== */
-#overview-basic-details {
+.overviewBasicDetails {
   margin: 4px 0 4px 0;
   padding: 2px 0 0;
   color: #656666;
   font: 15px;
 }
-.overview-basic-details-specific {
+.overviewBasicDetailsSpecific {
   display: inline-block;
   color: #656666;
 }
@@ -101,7 +101,7 @@ body {
   border-right: 1px #d0d2d3 solid;
   border-left: 1px #d0d2d3 solid;
 }
-.overview-middot {
+.overviewMiddot {
   margin: 0px 4px 0 4px;
 }
 /* ====================================================== */

@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../style.css';
 
 const BasicDetails = (({ type, vicinity, priceLevel }) => (
-  <div id="overview-basic-details">
-    <div className="overview-basic-details-specific">{type}
-      <span className="overview-middot">·</span>
+  <div id="overview-basic-details" className={styles.overviewBasicDetails}>
+    <div className={styles.overviewBasicDetailsSpecific}>{type}
+      <span className={styles.overviewMiddot}>·</span>
     </div>
-    <div className="overview-basic-details-specific">{vicinity}
-      <span className="overview-middot">·</span>
+    <div className={styles.overviewBasicDetailsSpecific}>{vicinity}
+      <span className={styles.overviewMiddot}>·</span>
     </div>
-    <div className="overview-basic-details-specific">{priceLevel}</div>
+    <div className={styles.overviewBasicDetailsSpecific}>{priceLevel}</div>
   </div>
 ));
 
