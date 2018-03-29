@@ -107,7 +107,7 @@ body {
 /* ====================================================== */
 /* =========== Long Description Module Styles =========== */
 /* ====================================================== */
-#overview-long-description {
+.overviewLongDescription {
   font-family: 'Roboto-light', sans-serif;
   font-size: 18px;
   letter-spacing: .013em;
