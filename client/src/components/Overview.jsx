@@ -5,44 +5,34 @@ import DividerLine from './WeGotDividerLine';
 import WeGotReview from './WeGotReview';
 import LongDescription from './LongDescription';
 
-class Overview extends React.Component {
-  constructor(props) {
-    console.log(`props: ${JSON.stringify(props)}`);
-    super(props);
+const Overview = (props) => {
+  let priceLevelInDollars = '';
+  const priceLevel = props.priceLevel || 1;
+  for (let i = 0; i < priceLevel; i += 1) {
+    priceLevelInDollars += '$';
   }
-
-  render() {
-    // if (this.state.renderBool) {
-    let priceLevelInDollars = '';
-    const priceLevel = this.props.priceLevel || 1;
-    for (let i = 0; i < priceLevel; i += 1) {
-      priceLevelInDollars += '$';
-    }
-    return (
-      <div id="overview-wrapper">
-        <div id="overview-restaurant-title">{this.props.name.toUpperCase()}</div>
-        <div id="overview-restaurant-tagline">{this.props.tagline}</div>
-        <BasicDetails
-          type={this.props.type}
-          vicinity={this.props.vicinity}
-          priceLevel={priceLevelInDollars}
-        />
-        <DividerLine />
-        <div className="overview-wegot-review-title">THE WEGOT REVIEW</div>
-        <WeGotReview
-          food={this.props.zagatFood}
-          decor={this.props.zagatDecor}
-          service={this.props.zagatService}
-        />
-        <LongDescription
-          description={this.props.longDescription}
-        />
-      </div>
-    );
-  }
-  //   return <div>Loading Restaurant Info...</div>;
-  // }
-}
+  return (
+    <div id="overview-wrapper">
+      <div id="overview-restaurant-title">{props.name.toUpperCase()}</div>
+      <div id="overview-restaurant-tagline">{props.tagline}</div>
+      <BasicDetails
+        type={props.type}
+        vicinity={props.vicinity}
+        priceLevel={priceLevelInDollars}
+      />
+      <DividerLine />
+      <div className="overview-wegot-review-title">THE WEGOT REVIEW</div>
+      <WeGotReview
+        food={props.zagatFood}
+        decor={props.zagatDecor}
+        service={props.zagatService}
+      />
+      <LongDescription
+        description={props.longDescription}
+      />
+    </div>
+  );
+};
 
 Overview.propTypes = {
   _id: PropTypes.string.isRequired,
