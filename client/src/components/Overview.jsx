@@ -1,88 +1,52 @@
 import React from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import BasicDetails from './BasicDetails';
 import DividerLine from './WeGotDividerLine';
 import WeGotReview from './WeGotReview';
 import LongDescription from './LongDescription';
+import styles from '../style.css';
 
-class Overview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      renderBool: false,
-      restaurantTitle: 'Title Placeholder',
-      restaurantTagline: 'Tagline Placeholder',
-      restaurantType: 'Restaurant',
-      restaurantVicinity: 'Vicinity Placeholder',
-      restaurantPriceLevel: 'Price Level Placeholder',
-      weGotFoodRating: '3.3',
-      weGotDecorRating: '3.3',
-      weGotServiceRating: '3.3',
-      restaurantDescription: 'Description Placeholder',
-    };
+const Overview = (props) => {
+  let priceLevelInDollars = '';
+  const priceLevel = props.priceLevel || 1;
+  for (let i = 0; i < priceLevel; i += 1) {
+    priceLevelInDollars += '$';
   }
+  return (
+    <div id="overview-wrapper" className={styles.overviewWrapper}>
+      <div id="overview-restaurant-title" className={styles.overviewRestaurantTitle}>{props.name.toUpperCase()}</div>
+      <div id="overview-restaurant-tagline" className={styles.overviewRestaurantTagline}>{props.tagline}</div>
+      <BasicDetails
+        type={props.type}
+        vicinity={props.vicinity}
+        priceLevel={priceLevelInDollars}
+      />
+      <DividerLine />
+      <div className={styles.overviewWegotReviewTitle}>THE WEGOT REVIEW</div>
+      <WeGotReview
+        food={props.zagatFood}
+        decor={props.zagatDecor}
+        service={props.zagatService}
+      />
+      <LongDescription
+        description={props.longDescription}
+      />
+    </div>
+  );
+};
 
-  componentDidMount() {
-    this.fetchRestaurantInfo();
-  }
-
-  fetchRestaurantInfo() {
-    const id = window.location.href.split('/')[4];
-    axios.get(`/api/restaurants/${id}/overview`)
-      .then((response) => {
-        this.handleRestaurantChange(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  handleRestaurantChange(restaurantDetails) {
-    let priceLevelInDollars = '';
-    const priceLevel = restaurantDetails.priceLevel || 1;
-    for (let i = 0; i < priceLevel; i += 1) {
-      priceLevelInDollars += '$';
-    }
-    this.setState({
-      renderBool: true,
-      restaurantTitle: restaurantDetails.name.toUpperCase(),
-      restaurantTagline: restaurantDetails.tagline,
-      restaurantVicinity: restaurantDetails.vicinity,
-      restaurantPriceLevel: priceLevelInDollars,
-      weGotFoodRating: restaurantDetails.zagatFood,
-      weGotDecorRating: restaurantDetails.zagatDecor,
-      weGotServiceRating: restaurantDetails.zagatService,
-      restaurantDescription: restaurantDetails.longDescription,
-    });
-  }
-
-  render() {
-    if (this.state.renderBool) {
-      return (
-        <div id="overview-wrapper">
-          <div id="overview-restaurant-title">{this.state.restaurantTitle}</div>
-          <div id="overview-restaurant-tagline">{this.state.restaurantTagline}</div>
-          <BasicDetails
-            type={this.state.restaurantType}
-            vicinity={this.state.restaurantVicinity}
-            priceLevel={this.state.restaurantPriceLevel}
-          />
-          <DividerLine />
-          <div className="overview-wegot-review-title">THE WEGOT REVIEW</div>
-          <WeGotReview
-            food={this.state.weGotFoodRating}
-            decor={this.state.weGotDecorRating}
-            service={this.state.weGotServiceRating}
-          />
-          <LongDescription
-            description={this.state.restaurantDescription}
-          />
-        </div>
-      );
-    }
-    return <div>Loading Restaurant Info...</div>;
-  }
-}
-
+Overview.propTypes = {
+  _id: PropTypes.string.isRequired,
+  restaurant_id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  tagline: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  vicinity: PropTypes.string.isRequired,
+  priceLevel: PropTypes.string.isRequired,
+  zagatFood: PropTypes.string.isRequired,
+  zagatDecor: PropTypes.string.isRequired,
+  zagatService: PropTypes.string.isRequired,
+  longDescription: PropTypes.string.isRequired,
+};
 
 export default Overview;

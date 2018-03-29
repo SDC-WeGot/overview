@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../style.css';
 
 const WeGotReview = (({ food, decor, service }) => (
-  <div id="overview-wegot-review">
-    <div className="overview-wegot-details-box">
-      <div className="overview-wegot-rating-details">{food}</div>
-      <span className="overview-wegot-details-subtitle">FOOD</span>
+  <div id="overview-wegot-review" className={styles.overviewWegotReview}>
+    <div className={styles.overviewWegotDetailsBox}>
+      <div className={styles.overviewWegotRatingDetails}>{food}</div>
+      <span className={styles.overviewWegotDetailsSubtitle}>FOOD</span>
     </div>
-    <div className="overview-wegot-details-box overview-wegot-midbox">
-      <div className="overview-wegot-rating-details">{decor}</div>
-      <span className="overview-wegot-details-subtitle">DECOR</span>
+    <div className={`${styles.overviewWegotDetailsBox} ${styles.overviewWegotMidbox}`}>
+      <div className={styles.overviewWegotRatingDetails}>{decor}</div>
+      <span className={styles.overviewWegotDetailsSubtitle}>DECOR</span>
     </div>
-    <div className="overview-wegot-details-box">
-      <div className="overview-wegot-rating-details">{service}</div>
-      <span className="overview-wegot-details-subtitle">SERVICE</span>
+    <div className={styles.overviewWegotDetailsBox}>
+      <div className={styles.overviewWegotRatingDetails}>{service}</div>
+      <span className={styles.overviewWegotDetailsSubtitle}>SERVICE</span>
     </div>
   </div>
 ));
