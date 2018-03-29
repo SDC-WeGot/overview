@@ -4,27 +4,28 @@
 body {
   background-color: #f1f1f2;
 }
-#overview-app {
+/* #overview-app {
   font-family: 'Raleway', sans-serif;
-}
-#overview-wrapper {
+} */
+.overviewWrapper {
+  font-family: 'Raleway', sans-serif;
   border: 1px solid white;
   background: white;
   padding: 26px 32px 32px;
   max-width: 900px;
 }
-#overview-restaurant-title {
+.overviewRestaurantTitle {
   letter-spacing: 0.10em;
   font-weight: bold;
   font-size: 24px;
 }
-#overview-restaurant-tagline {
+.overviewRestaurantTagline {
   margin-top: 4px;
   padding: 2px 0 0;
   color: #656666;
   font: 15px;
 }
-.overview-wegot-review-title {
+.overviewWegotReviewTitle {
   margin-top: 4px;
   font: 16px/12px;
   letter-spacing: 0.09em;

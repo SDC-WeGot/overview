@@ -4,6 +4,7 @@ import BasicDetails from './BasicDetails';
 import DividerLine from './WeGotDividerLine';
 import WeGotReview from './WeGotReview';
 import LongDescription from './LongDescription';
+import styles from '../style.css';
 
 const Overview = (props) => {
   let priceLevelInDollars = '';
@@ -12,16 +13,16 @@ const Overview = (props) => {
     priceLevelInDollars += '$';
   }
   return (
-    <div id="overview-wrapper">
-      <div id="overview-restaurant-title">{props.name.toUpperCase()}</div>
-      <div id="overview-restaurant-tagline">{props.tagline}</div>
+    <div id="overview-wrapper" className={styles.overviewWrapper}>
+      <div id="overview-restaurant-title" className={styles.overviewRestaurantTitle}>{props.name.toUpperCase()}</div>
+      <div id="overview-restaurant-tagline" className={styles.overviewRestaurantTagline}>{props.tagline}</div>
       <BasicDetails
         type={props.type}
         vicinity={props.vicinity}
         priceLevel={priceLevelInDollars}
       />
       <DividerLine />
-      <div className="overview-wegot-review-title">THE WEGOT REVIEW</div>
+      <div className={styles.overviewWegotReviewTitle}>THE WEGOT REVIEW</div>
       <WeGotReview
         food={props.zagatFood}
         decor={props.zagatDecor}

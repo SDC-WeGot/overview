@@ -9,26 +9,26 @@ const common = {
     extensions: ['.js', '.jsx']
   },
   context: SRC_DIR,
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?/,
-        include: SRC_DIR,
-        exclude: ['node_modules'],
-        loader: 'babel-loader',      
-        query: {
-          presets: ['react', 'env']
-        }
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      }
-    ]
-  },
+  // module: {
+  //   loaders: [
+  //     // {
+  //     //   test: /\.jsx?/,
+  //     //   include: SRC_DIR,
+  //     //   exclude: ['node_modules'],
+  //     //   loader: 'babel-loader',      
+  //     //   query: {
+  //     //     presets: ['react', 'env']
+  //     //   }
+  //     // },
+  //     // {
+  //     //   test: /\.css$/,
+  //     //   use: [
+  //     //     'style-loader',
+  //     //     'css-loader'
+  //     //   ]
+  //     // }
+  //   ]
+  //  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -50,6 +50,26 @@ const client = {
   output: {
     path: DIST_DIR,
     filename: 'app.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?module&localIdentName=[name]__[local]___[hash:base64:5]',
+        ],
+      },
+      {
+        test: /\.jsx?/,
+        include: SRC_DIR,
+        exclude: ['node_modules'],
+        loader: 'babel-loader',      
+        query: {
+          presets: ['react', 'env']
+        }
+      },
+    ],
   }
 };
 
@@ -60,7 +80,24 @@ const server = {
     path: DIST_DIR,
     filename: 'app-server.js',
     libraryTarget: 'commonjs-module'
-  }
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader/locals?module&localIdentName=[name]__[local]___[hash:base64:5]'
+      },
+      {
+        test: /\.jsx?/,
+        include: SRC_DIR,
+        exclude: ['node_modules'],
+        loader: 'babel-loader',      
+        query: {
+          presets: ['react', 'env']
+        }
+      },      
+    ],
+  },
 };
 
 module.exports = [
