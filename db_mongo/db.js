@@ -9,7 +9,11 @@
 
 const { MongoClient } = require('mongodb');
 
-const url = 'mongodb://localhost:27017';
+const dbAddress = process.env.DB_ADDRESS;
+const userInfo = process.env.MONGO_USER;
+
+// const url = 'mongodb://localhost:27017';
+const url = `mongodb://${userInfo}@${dbAddress}:27017/weGotData`;
 const dbName = 'weGotData';
 
 let collection;
@@ -19,6 +23,7 @@ module.exports = {
     try {
       const client = await MongoClient.connect(url, { poolSize: 15 });
       collection = client.db(dbName).collection('restaurants');
+      // collection = client.collection('restaurants');
     } catch (error) {
       throw new Error(error);
     }
