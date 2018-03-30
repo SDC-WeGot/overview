@@ -35,7 +35,7 @@ const client = {
     rules: [
       {
         test: /\.css$/,
-        rules: [
+        loaders: [
           'style-loader',
           'css-loader?module&localIdentName=[name]__[local]___[hash:base64:5]',
         ],
