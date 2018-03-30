@@ -32,10 +32,10 @@ const client = {
     filename: 'app.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loaders: [
+        rules: [
           'style-loader',
           'css-loader?module&localIdentName=[name]__[local]___[hash:base64:5]',
         ],
@@ -62,7 +62,7 @@ const server = {
     libraryTarget: 'commonjs-module'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
         loader: 'css-loader/locals?module&localIdentName=[name]__[local]___[hash:base64:5]'
