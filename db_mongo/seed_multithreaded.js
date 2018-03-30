@@ -78,7 +78,7 @@ if (cluster.isMaster) {
       if (countExits === numCPUs) {
         //  create index after all processes have finished
         const collection = await connectDB();
-        await collection.createIndex({ restaurant_id: 1 });
+        await collection.createIndex({ restaurant_id: 1 }, { background: true });
         //  exit master after all workers have exited
         process.exit();
       }
