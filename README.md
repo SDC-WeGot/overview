@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/bamboo-connection/gallery
-  - https://github.com/bamboo-connection/overview
-  - https://github.com/bamboo-connection/map-side-bar
-  - https://github.com/bamboo-connection/recommendations
+  - https://github.com/SDC-WeGot/gallery
+  - https://github.com/SDC-WeGot/overview
+  - https://github.com/SDC-WeGot/sidebar
+  - https://github.com/SDC-WeGot/recommendations
 
 ## Table of Contents
 
@@ -17,8 +17,11 @@
 
 ## Usage
 
-> This project is running on port 3002.
-> http://127.0.0.1:3002
+> Steps for using:
+> 1. For seeding the mongo database run "npm run seedMongo" 
+> 2. Build the bundle.js for client side code using "webpack -p"
+> 3. Start the server by running "npm start"
+> 4. Access server at http://127.0.0.1:3002
 
 ## Requirements
 
@@ -39,7 +42,7 @@ This project is no longer using webpack-dev-middleware!!! You need to run webpac
 From within the root directory:
 ```sh
 Install dependencies: npm install OR yarn install
-Start webpack: npm run dev OR yarn dev
+Start webpack: webpack -p
 Start server: npm start OR yarn start
 Spin up mongo on your computer and then: npm run seed OR yarn seed
 ```
